@@ -21,6 +21,10 @@ node_modules/
 #Ignore Zip Files
 *.zip
 
+#Ignore Template File
+template.html
+
+
 #Ignore Folders
 Bootstrap-installation/
 Lesson Resources/
