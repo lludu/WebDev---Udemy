@@ -1,0 +1,70 @@
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #1abc9c;
+
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 2rem;
+  color: #fff;
+}
+
+.btn-custom:hover{
+  background: #06a888;
+  }
+.btn-custom{
+  background: #1abc9c;
+  }
+
+button{
+  color: #ffffff !important;
+}
+.asteriskField {
+  color:red;
+  font-size: 2rem;
+}
+
+.form-text {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 1.5rem;
+  color: black
+}
+
+.btn-text {
+  font-size: 2rem;
+}
+
+
+label {
+  margin-top: 25px;
+}
+
+.fa-node{
+  font-size: 3rem;
+}
