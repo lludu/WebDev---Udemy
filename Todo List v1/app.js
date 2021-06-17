@@ -3,8 +3,12 @@ const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
 const app = express();
+const date = require(__dirname + "/date.js"); //require our custom date module/funciton
 
-var items = []
+// console.log(date())
+
+const items = [];
+const workItems = [];
 
 app.set('view engine', 'ejs');
 
@@ -13,37 +17,41 @@ app.use(express.static("public"));
 
 
 app.get("/", (req, res) => {
-  // res.send("Hello");
-
-var today = new Date();
-
-var options = {
-  weekday: "long",
-  day: "numeric",
-  month: "long"
-};
-
-var day = today.toLocaleDateString("en-US", options)
-
-
-res.render('lists', {kindOfDay: day, newListItems: items});
-
-
+const day = date.getDate();
+  res.render('lists', {listTitle: day, newListItems: items});
 });
 
 
+//MAIN POST PAGE
 app.post("/", (req, res) => {
-  var item = req.body.newItem;
-  items.push(item); // appends item to the array
 
+  const item = req.body.newItem;
 
-
-
-
-  res.redirect("/")  //reloads "redirects" the page again
-
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  }
+  else {
+    items.push(item); // appends item to the array
+    res.redirect("/")  //reloads "redirects" the page again
+  }
 
 });
+
+
+
+//WORK LIST POST PAGE
+app.get("/work", (req, res)=>{
+  res.render('lists', {listTitle: "Work List", newListItems: workItems });
+});
+
+
+//ABOUT POST PAGE
+app.get("/about", (req, res)=>{
+  res.render('about');
+});
+
+
 
 app.listen(port, ()=> {
   console.log(`Server is running on http://localhost:${port}`);
